@@ -13,7 +13,7 @@ CREATE TABLE telefone_institucionais (
 
 CREATE TABLE funcao (
     id_funcao BIGINT NOT NULL,
-    nome_servidor BIGINT NOT NULL,
+    nome_funcao VARCHAR(255) NOT NULL,
     PRIMARY KEY (id_funcao)
 );
 
@@ -37,11 +37,11 @@ CREATE TABLE jornada_trabalho (
 
 CREATE TABLE servidor (
     matricula BIGINT NOT NULL,
-    nome BIGINT NOT NULL,
-    categoria BIGINT NOT NULL,
-    cargo BIGINT NOT NULL,
-    curriculo_lattes BIGINT NOT NULL,
-    urk_foto_75x100 BIGINT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    categoria VARCHAR(255) NOT NULL,
+    cargo VARCHAR(255) NOT NULL,
+    curriculo_lattes VARCHAR(255) NOT NULL,
+    url_foto_75x100 VARCHAR(255) NOT NULL,
     id_setor BIGINT NOT NULL,
     id_disciplina BIGINT NOT NULL,
     id_funcao BIGINT NOT NULL,
