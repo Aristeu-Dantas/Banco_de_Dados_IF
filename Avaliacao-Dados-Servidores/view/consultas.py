@@ -34,7 +34,7 @@ def inserir_dados():
         return
 
     # Lendo os dados do arquivo CSV
-    lido, dados_retorno = ler_arquivo(arquivo_csv)
+    lido, retorno_dados = ler_arquivo(arquivo_csv)
 
     if not lido:
         print("Erro ao ler o arquivo CSV.")
@@ -43,7 +43,7 @@ def inserir_dados():
 
     campus_dao = CampusDAO(conexao_db.conexao)
 
-    for matricula, dados in dados_retorno.items():
+    for matricula, dados in retorno_dados.items():
         descricao_campus = dados['campus']  # Coloque aqui a chave correta para a descrição do campus no CSV
         resultado, id_retorno = campus_dao.inserir_campus(descricao_campus)
 

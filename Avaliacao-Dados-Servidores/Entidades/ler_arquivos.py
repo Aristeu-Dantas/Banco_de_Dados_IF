@@ -5,7 +5,7 @@ def ler_arquivo(nome_arquivo):
     # Variável para indicar se o arquivo foi lido com sucesso
     lido = False
     # Dicionário para armazenar os dados do arquivo
-    dados_retorno = dict()
+    retorno_dados = dict()
 
     try:
         # Abre o arquivo no modo leitura
@@ -20,12 +20,12 @@ def ler_arquivo(nome_arquivo):
                     lido = True
                 else:
                     # Cria um dicionário com os dados da linha e usa o campo 'matricula' (índice 0) como chave
-                    dados_retorno[linha[0]] = dict(zip(cabecalho, linha))
+                    retorno_dados[linha[0]] = dict(zip(cabecalho, linha))
     except FileNotFoundError:
-        dados_retorno = f'ERRO: Arquivo Inexistente...'
-        print(dados_retorno)
+        retorno_dados = f'ERRO: Arquivo Inexistente...'
+        print(retorno_dados)
     except:
-        dados_retorno = f'ERRO: {sys.exc_info()[0]}'
-        print(dados_retorno)
+        retorno_dados = f'ERRO: {sys.exc_info()[0]}'
+        print(retorno_dados)
     finally:
-        return lido, dados_retorno
+        return lido, retorno_dados

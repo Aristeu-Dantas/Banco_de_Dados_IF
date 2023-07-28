@@ -7,7 +7,7 @@ from view.consultas import *
 def main():
     # Lendo os dados do arquivo CSV
     arquivo_csv = os.path.join(APP_DIR, 'arquivo.csv')
-    lido, dados_retorno = ler_arquivo(arquivo_csv)
+    lido, retorno_dados = ler_arquivo(arquivo_csv)
 
     if not lido:
         sys.exit()
@@ -19,31 +19,24 @@ def main():
         print(conexao_db[1])
         sys.exit()
 
-    connDB = conexao_db[1]
+    banco = conexao_db[1]
     while True:
-        opcao = input('''
-        Escolha sua opção:
-        0 - Sair do programa
-        1 - Inserir dados no banco
-        2 - Consultar tipos de servidores por campus
-        3 - Consultar docentes por disciplina
-        4 - Consultar quantidade de docentes por disciplinas e por campus
-        >> ''')
+        escolha = input('Escolha uma das opções: \n0 - Finalizar a execução do programa. \n1 - Adicionar informações ao banco de dados. \n2 - Pesquisar categorias de servidores por campus \n3 - Verificar docentes por área de estudo \n4 - Consultar a quantidade de docentes por áreas de estudo e campus')
 
-        if opcao == '0':
+        if escolha == '0':
             print("\nENCERRANDO O PROGRAMA!\n")
-            connDB.close()
+            banco.close()
             sys.exit()
-        elif opcao == '1':
+        elif escolha == '1':
             inserir_dados()
-        elif opcao == '2':
+        elif escolha == '2':
             servidoresCampus()
-        elif opcao == '3':
+        elif escolha == '3':
             docentesDisciplina()
-        elif opcao == '4':
+        elif escolha == '4':
             quantidadeDocentesDisciplinas()
         else:
-            print("\nOPÇÃO INVÁLIDA!!!\n")
+            print("\nOpção invalida! Tente novamente...\n")
 
 if __name__ == "__main__":
     main()

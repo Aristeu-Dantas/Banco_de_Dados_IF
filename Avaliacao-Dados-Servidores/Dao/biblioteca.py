@@ -72,7 +72,7 @@ def consultar_quantidade_docentes_disciplinas(self):
 
 class CampusDAO:
     def __init__(self, conexao):
-        # Inicializa a conexão com o banco
+        # Inicia a conexão com o banco
         self.conexao = conexao
 
     def inserir_campus(self, descricao):
